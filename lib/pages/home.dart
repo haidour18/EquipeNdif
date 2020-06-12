@@ -31,11 +31,17 @@ class _HomeState extends State<Home> {
         child: currentScreen,
         bucket: bucket,
       ),
-      floatingActionButton: FloatingActionButton(
+
+      floatingActionButton: Container(
+        height: 50.0,
+        width: 50.0,
+        child: FittedBox(
+          child: FloatingActionButton(
+
+              child: Icon(Icons.add),
 backgroundColor: Colors.green,
-        materialTapTargetSize: MaterialTapTargetSize.padded,
-        child: Icon(Icons.add ,size: 18,),
-        onPressed: () {},
+              onPressed: () {}),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
