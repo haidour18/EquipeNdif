@@ -1,10 +1,5 @@
-
-
 import 'package:flutter/material.dart';
-import 'Declarations.dart';
-import 'Profile.dart';
-import 'Notifications.dart';
-import 'Contact.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -13,183 +8,83 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   // Properties & Variables needed
+  String _value = null;
+  List<String> _values = new List<String>();
+  @override
+  void initState() {
+    _values.addAll(["Français", "Anglais","Arabe"]);
+    _value = _values.elementAt(0);
+  }
 
-  int currentTab = 0; // to keep track of active tab index
-  final List<Widget> screens = [
-    Declarations(),
-    Profile(),
-    Notifications(),
-    Contact(),
-  ]; // to store nested tabs
-  final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = Declarations(); // Our first view in viewport
+  void _OnChange(String value) {
+    setState(() {
+      _value = value;
+    });
+  }
+  // to store nested tabs
+// Our first view in viewport
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageStorage(
-        child: currentScreen,
-        bucket: bucket,
-      ),
 
-      floatingActionButton: Container(
-        height: 50.0,
-        width: 50.0,
-        child: FittedBox(
-          child: FloatingActionButton(
-
-              child: Icon(Icons.add),
-backgroundColor: Colors.green,
-              onPressed: () {}),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
-      bottomNavigationBar: BottomAppBar(
-
-        notchMargin: 0,
-        child: Container(
-
-          padding: EdgeInsets.only(left:1,right: 8),
-          height: 60,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
+      body: Container(
+decoration: BoxDecoration(
+  image: DecorationImage(
+    image: AssetImage('assets/Splash_Validé.png'),
+        fit: BoxFit.cover
+  )
+),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  MaterialButton(
-                    minWidth: 30,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen =
-                        Declarations(); // if user taps on this dashboard tab will be active
-                        currentTab = 0;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.history,
-                          size: 20.0,
-                          color: currentTab == 0 ? Colors.green : Colors.grey,
-                        ),
-                        Text(
-                          'Declarations',
-                          style: TextStyle(
-                            fontSize: 10,
-                            color: currentTab == 0 ? Colors.green : Colors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  MaterialButton(
-                    minWidth: 30,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen =
-                            Profile(); // if user taps on this dashboard tab will be active
-                        currentTab = 1;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.person,
-                          size: 20.0,
 
-                          color: currentTab == 1 ? Colors.green : Colors.grey,
-                        ),
-                        Text(
-                          'Profil',
-                          style: TextStyle(
-                            fontSize: 10,
+    Center(
 
-                            color: currentTab == 1 ? Colors.green : Colors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+        child: Padding(
+          padding: const EdgeInsets.only(top:80.0),
+          child: new Column(
 
-              // Right Tab bar icons
+          children: <Widget>[
 
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  MaterialButton(
-                    minWidth: 30,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen =
-                            Notifications(); // if user taps on this dashboard tab will be active
-                        currentTab = 2;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.notifications,
-                          size: 20.0,
+            Text('Choisissez une langue ',style: TextStyle(fontSize: 14.0,
+                fontWeight: FontWeight.w400,color:Color(0xffB2B2B2)),),
+          new DropdownButton(
 
-                          color: currentTab == 2 ? Colors.green : Colors.grey,
-                        ),
-                        Text(
-                          'Notifications',
-                          style: TextStyle(
-                            fontSize: 10,
+            hint: Text('Français'),
+            iconSize: 20,
+          style: TextStyle(color: Colors.grey),
+            icon: Icon(Icons.language,color: Color(0xffB2B2B2),),
+          value:_value,
+          items: _values.map((String value) {
+          return new DropdownMenuItem(value:value,
+          child:new Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
-                            color: currentTab == 2 ? Colors.green : Colors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  MaterialButton(
-                    minWidth: 30,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen =
-                        Contact(); // if user taps on this dashboard tab will be active
-                        currentTab = 3;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.call,
-                          size: 20.0,
+          children: <Widget>[
 
-                          color: currentTab == 3 ? Colors.green : Colors.grey,
-                        ),
-                        Text(
-                          'Contact',
-                          style: TextStyle(
-                            fontSize: 10,
-
-                            color: currentTab == 3 ? Colors.green : Colors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: new Text('${value}',style: TextStyle(color: Colors.grey),),
               )
+          ],
+          )
+          );
+          }).toList(),
+          onChanged: (String value){
+          _OnChange(value);
+          }
+          ),
 
-            ],
+          ],
+          ),
+        ),
+    ),
+          ],
           ),
         ),
       ),
-    );
-  }
+    );}
 }
-

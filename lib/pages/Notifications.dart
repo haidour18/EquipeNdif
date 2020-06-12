@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'MyDrawer.dart';
 
 class Notifications extends StatefulWidget {
   @override
@@ -10,10 +11,11 @@ class _NotificationsState extends State<Notifications> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle:true ,
+        centerTitle: true,
         backgroundColor: Colors.green,
         title: Text('Notifications'),
       ),
+      drawer: MyDrawer(),
     );
   }
 }
