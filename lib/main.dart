@@ -1,5 +1,5 @@
-import 'package:equipendif/pages/home.dart';
 import 'package:equipendif/pages/navigationbar.dart';
+import 'package:equipendif/pages/welcome2.dart';
 import 'package:flutter/material.dart';
 
 
@@ -16,6 +16,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
         primarySwatch: Colors.blue,
     ),
-    home: Home() ,
+    home: Welcome2() ,
     ); }
 }
