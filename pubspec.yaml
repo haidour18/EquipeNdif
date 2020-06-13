@@ -49,6 +49,7 @@ flutter:
     - assets/Splash_Validé.png
     - assets/Welcome.jpg
     - assets/Welcome2.jpg
+    - assets/Welcome3.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -33,7 +33,7 @@ class _Welcome2State extends State<Welcome2> {
                        shape: StadiumBorder(),
                        minWidth: 40.0,
                        splashColor:Colors.white ,
-                       color: Colors.green,
+                       color: Color(0xff73B650),
                        child: Text('Commencer',style: TextStyle(color: Colors.white,fontSize: 14.0),),
 
                      ),
