@@ -1,79 +1,120 @@
 import 'package:flutter/material.dart';
 
-
 class Welcome extends StatefulWidget {
   @override
   _WelcomeState createState() => _WelcomeState();
 }
 
 class _WelcomeState extends State<Welcome> {
-  // Properties & Variables needed
-  String _value = null;
-  List<String> _values = new List<String>();
-  @override
-  void initState() {
-    _values.addAll(["Français", "Anglais","Arabe"]);
-    _value = _values.elementAt(0);
-  }
 
-  void _OnChange(String value) {
-    setState(() {
-      _value = value;
-    });
-  }
+
+
   // to store nested tabs
 // Our first view in viewport
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body: Container(
-
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/Welcome.jpg'),
-                fit: BoxFit.cover
-            )
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-
-            Center(
-
-              child: new Column(
-
+      backgroundColor: Colors.white,
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(top: 168.0, bottom: 10),
+            child: Text(
+              'Commençons avec N’dif',
+              style: TextStyle(
+                  color: Color(0xff3A6A75),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+              textDirection: TextDirection.rtl,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Text(
+            'Ndif une application qui vous aide à préserver votre environnement',
+            style: TextStyle(
+                color: Color(0xff3A6A75),
+                fontWeight: FontWeight.normal,
+                fontSize: 16),
+            textDirection: TextDirection.rtl,
+            textAlign: TextAlign.center,
+          ),
+          Image(
+            image: AssetImage('assets/Welcome.jpg'),
+          ),
+          Row(
+            children: <Widget>[
+              Row(
                 children: <Widget>[
-
-
-                 Container(width: 180.0,
-                      margin: EdgeInsets.only(top:440),
-                      child:   MaterialButton(onPressed: (){},
-                        shape: StadiumBorder(),
-                        minWidth: 40.0,
-                        splashColor:Colors.white ,
-                        color: Colors.green,
-                        child: Text('Continuer',style: TextStyle(color: Colors.white,fontSize: 14.0),),
-
+                  Center(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 80, left: 120, right: 0),
+                      child: Container(
+                        width: 180.0,
+                        child: MaterialButton(
+                          onPressed: () {},
+                          shape: StadiumBorder(),
+                          splashColor: Colors.white,
+                          color: Color(0xff73B650),
+                          child: Text(
+                            'Commencer',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 14.0),
+                          ),
+                        ),
                       ),
                     ),
-
-
+                  ),
                 ],
               ),
-
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(left: 18.0, top: 20),
+                child: Container(
+                  child: CircleAvatar(
+                    radius: 4,
+                    backgroundColor: Color(0xff73B650),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 18.0, top: 20),
+                child: CircleAvatar(
+                  radius: 4,
+                  backgroundColor: Color(0xffBDCDD1),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 18.0, top: 20),
+                child: CircleAvatar(
+                  radius: 4,
+                  backgroundColor: Color(0xffBDCDD1),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 320, top: 70.0),
+            child: Container(
+              width: 80.0,
+              height: 20,
+              child: MaterialButton(
+                onPressed: () {},
+                child: Text(
+                  'Passer',
+                  style: TextStyle(color: Color(0xff3A6A75), fontSize: 14.0),
+                ),
+              ),
             ),
-     Container(width: 180.0,height: 50,
-    margin: EdgeInsets.only(top: 138,left: 300),
-    child:   MaterialButton(onPressed: (){},
-    minWidth: 40.0,
-    child: Text('Passer',style: TextStyle(color: Color(0xff3A6A75),fontSize: 14.0),),
-
-    ),), ],
-        ),
-
+          ),
+        ],
       ),
-    );}
+    );
+  }
 }

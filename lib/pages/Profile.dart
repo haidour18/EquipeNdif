@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'MyDrawer.dart';
 
 class Profile extends StatefulWidget {
   @override
