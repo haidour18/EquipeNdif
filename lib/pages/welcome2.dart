@@ -1,4 +1,7 @@
+import 'package:equipendif/pages/welcome3.dart';
 import 'package:flutter/material.dart';
+
+import 'login.dart';
 
 class Welcome2 extends StatefulWidget {
   @override
@@ -55,7 +58,11 @@ class _Welcome2State extends State<Welcome2> {
                       child: Container(
                         width: 180.0,
                         child: MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => Login()
+                            ));
+                          },
                           shape: StadiumBorder(),
                           splashColor: Colors.white,
                           color: Color(0xff73B650),
@@ -107,9 +114,13 @@ class _Welcome2State extends State<Welcome2> {
               width: 80.0,
               height: 20,
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => Welcome3()
+                  ));
+                },
                 child: Text(
-                  'Passer',
+                  'Suivant',
                   style: TextStyle(color: Color(0xff3A6A75), fontSize: 14.0),
                 ),
               ),

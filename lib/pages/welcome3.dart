@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'login.dart';
+
 class Welcome3 extends StatefulWidget {
   @override
   _Welcome3State createState() => _Welcome3State();
@@ -50,7 +52,11 @@ class _Welcome3State extends State<Welcome3> {
                       child: Container(
                         width: 180.0,
                         child: MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => Login()
+                            ));
+                          },
                           shape: StadiumBorder(),
                           splashColor: Colors.white,
                           color: Color(0xff73B650),
@@ -96,20 +102,7 @@ class _Welcome3State extends State<Welcome3> {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 330, top: 50.0),
-            child: Container(
-              width: 80.0,
-              height: 20,
-              child: MaterialButton(
-                onPressed: () {},
-                child: Text(
-                  'Passer',
-                  style: TextStyle(color: Color(0xff3A6A75), fontSize: 14.0),
-                ),
-              ),
-            ),
-          ),
+
         ],
       ),
     );

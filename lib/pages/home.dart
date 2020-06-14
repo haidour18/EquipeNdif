@@ -1,3 +1,4 @@
+import 'package:equipendif/pages/welcome.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -48,48 +49,58 @@ class _HomeState extends State<Home> {
                             fontWeight: FontWeight.w400,
                             color: Color(0xffB2B2B2)),
                       ),
-                      new DropdownButton(
-                          hint: Text('Français'),
-                          iconSize: 20,
-                          style: TextStyle(color: Colors.grey),
-                          icon: Icon(
-                            Icons.language,
-                            color: Color(0xffB2B2B2),
-                          ),
-                          value: _value,
-                          items: _values.map((String value) {
-                            return new DropdownMenuItem(
-                                value: value,
-                                child: new Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: new Text(
-                                        '${value}',
-                                        style: TextStyle(color: Colors.grey),
-                                      ),
-                                    )
-                                  ],
-                                ));
-                          }).toList(),
-                          onChanged: (String value) {
-                            _OnChange(value);
-                          }),
+                      Container(height: 50,width: 90,
+                        child: new DropdownButton(
+                            hint: Text('Français'),
+                            iconSize: 20,
+                            style: TextStyle(color: Colors.grey),
+                            icon: Icon(
+                              Icons.language,
+                              color: Color(0xffB2B2B2),
+                            ),
+                            value: _value,
+                            items: _values.map((String value) {
+                              return new DropdownMenuItem(
+                                  value: value,
+                                  child: new Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: new Text(
+                                          '${value}',
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
+                                      )
+                                    ],
+                                  ));
+                            }).toList(),
+                            onChanged: (String value) {
+                              _OnChange(value);
+                            }),
+                      ),
                       Center(
-                        child: Container(
-                          child: RaisedButton(
-                            onPressed: () {},
-                            shape: StadiumBorder(),
-                            color: Colors.green,
-                            child: Text(
-                              'Continuer',
-                              style: TextStyle(color: Colors.white),
+                          child: Container(
+                            width: 130.0,
+                            child: MaterialButton(
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Welcome()
+                                ));
+                              },
+                              shape: StadiumBorder(),
+                              splashColor: Colors.white,
+                              color: Color(0xff73B650),
+                              child: Text(
+                                'Commencer',
+                                style:
+                                TextStyle(color: Colors.white, fontSize: 14.0),
+                              ),
                             ),
                           ),
                         ),
-                      )
+
                     ],
                   ),
                 ),

@@ -1,3 +1,5 @@
+import 'package:equipendif/pages/home.dart';
+import 'package:equipendif/pages/login.dart';
 import 'package:equipendif/pages/welcome.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Welcome(),
+      home: Login(),
     );
   }
 }

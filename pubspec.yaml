@@ -48,6 +48,7 @@ flutter:
   assets:
     - assets/Splash_Validé.png
     - assets/Welcome.jpg
+    - assets/icons.png
     - assets/Welcome2.jpg
     - assets/Welcome3.jpg
 
