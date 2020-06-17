@@ -72,7 +72,7 @@ padding: EdgeInsets.only(top: 150),
                         splashColor: Colors.white,
                         color: Color(0xff73B650),
                         child: Text(
-                          'Commencer',
+                          'Se connecter',
                           style:
                           TextStyle(color: Colors.white, fontSize: 14.0),
                         ),
@@ -99,7 +99,7 @@ padding: EdgeInsets.only(top: 150),
 
                     },
                     child: Text(
-                      'Créer un compte utilisateur' ,
+                      'Créer un compte utilisateur ?'  ,
                       style: TextStyle(color: Color(0xff3A6A75), fontSize: 14.0),
                     ),
                   ),

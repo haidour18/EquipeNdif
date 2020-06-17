@@ -15,7 +15,6 @@ class _ContactState extends State<Contact> {
         backgroundColor: Colors.green,
         title: Text('Contact'),
       ),
-      drawer: MyDrawer(),
     );
   }
 }

@@ -51,6 +51,13 @@ flutter:
     - assets/icons.png
     - assets/Welcome2.jpg
     - assets/Welcome3.jpg
+    - assets/inscrire.png
+    - assets/google.png
+    - assets/facebook.png
+    - assets/icontrash.png
+    - assets/Contact.png
+    - assets/Historic.png
+    - assets/Profil.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
