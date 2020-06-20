@@ -1,3 +1,4 @@
+import 'package:equipendif/pages/DeclarerBenne.dart';
 import 'package:flutter/material.dart';
 import 'Declarations.dart';
 import 'Profile.dart';
@@ -30,13 +31,19 @@ class _BarState extends State<Bar> {
         bucket: bucket,
       ),
       floatingActionButton: Container(
-        height: 50.0,
-        width: 50.0,
+        height: 60.0,
+        width: 70.0,
         child: FittedBox(
+
           child: FloatingActionButton(
-              child: Icon(Icons.add),
-              backgroundColor: Colors.green,
-              onPressed: () {}),
+
+              child: Icon(Icons.add,size: 25,),
+              backgroundColor: Color(0xff73B650),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => Declarer()
+                ));
+              }),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -57,7 +64,7 @@ class _BarState extends State<Bar> {
                     onPressed: () {
                       setState(() {
                         currentScreen =
-                            Declarations(); // if user taps on this dashboard tab will be active
+                           Declarations(); // if user taps on this dashboard tab will be active
                         currentTab = 0;
                       });
                     },
@@ -66,14 +73,17 @@ class _BarState extends State<Bar> {
                       children: <Widget>[
                         Icon(
                           Icons.history,
-                          size: 20.0,
-                          color: currentTab == 0 ? Colors.green : Colors.grey,
+                          size: 24.0,
+                          color: currentTab == 0 ? Color(0xff73B650) : Colors.grey,
                         ),
-                        Text(
-                          'Declarations',
-                          style: TextStyle(
-                            fontSize: 10,
-                            color: currentTab == 0 ? Colors.green : Colors.grey,
+                        Padding(
+                          padding: const EdgeInsets.only(left:8.0,top: 2),
+                          child: Text(
+                            'Declarations',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: currentTab == 0 ? Color(0xff73B650) : Colors.grey,
+                            ),
                           ),
                         ),
                       ],
@@ -91,16 +101,22 @@ class _BarState extends State<Bar> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Icon(
-                          Icons.person,
-                          size: 20.0,
-                          color: currentTab == 1 ? Colors.green : Colors.grey,
+                        Padding(
+                          padding: const EdgeInsets.only(left:3.0),
+                          child: Icon(
+                            Icons.person,
+                            size: 24.0,
+                            color: currentTab == 1 ? Color(0xff73B650): Colors.grey,
+                          ),
                         ),
-                        Text(
-                          'Profil',
-                          style: TextStyle(
-                            fontSize: 10,
-                            color: currentTab == 1 ? Colors.green : Colors.grey,
+                        Padding(
+                          padding: const EdgeInsets.only(left:5.0,top: 2),
+                          child: Text(
+                            'Profil',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: currentTab == 1 ?Color(0xff73B650) : Colors.grey,
+                            ),
                           ),
                         ),
                       ],
@@ -128,14 +144,14 @@ class _BarState extends State<Bar> {
                       children: <Widget>[
                         Icon(
                           Icons.notifications,
-                          size: 20.0,
-                          color: currentTab == 2 ? Colors.green : Colors.grey,
+                          size: 24.0,
+                          color: currentTab == 2 ? Color(0xff73B650) : Colors.grey,
                         ),
                         Text(
                           'Notifications',
                           style: TextStyle(
-                            fontSize: 10,
-                            color: currentTab == 2 ? Colors.green : Colors.grey,
+                            fontSize: 12,
+                            color: currentTab == 2 ? Color(0xff73B650) : Colors.grey,
                           ),
                         ),
                       ],
@@ -155,14 +171,14 @@ class _BarState extends State<Bar> {
                       children: <Widget>[
                         Icon(
                           Icons.call,
-                          size: 20.0,
-                          color: currentTab == 3 ? Colors.green : Colors.grey,
+                          size: 24.0,
+                          color: currentTab == 3 ? Color(0xff73B650): Colors.grey,
                         ),
                         Text(
                           'Contact',
                           style: TextStyle(
-                            fontSize: 10,
-                            color: currentTab == 3 ? Colors.green : Colors.grey,
+                            fontSize: 12,
+                            color: currentTab == 3 ? Color(0xff73B650) : Colors.grey,
                           ),
                         ),
                       ],

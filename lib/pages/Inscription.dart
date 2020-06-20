@@ -69,7 +69,7 @@ class _InscriptionState extends State<Inscription> {
                           fillColor: Color(0xff3A6A75),
                           hintStyle: TextStyle(color: Color(0xffD5D5D5)),
                           hintText: "Numéro de téléphone",
-                          hoverColor: Colors.green),
+                          hoverColor: Color(0xff73B650)),
                     ),
                   ),
                   Container(

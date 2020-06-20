@@ -1,12 +1,14 @@
-import 'package:equipendif/pages/welcome.dart';
+import 'package:equipendif/pages/MyDrawer.dart';
+import 'package:equipendif/pages/Profile.dart';
 import 'package:flutter/material.dart';
 
-class Inscription2 extends StatefulWidget {
+import 'Profile2.dart';
+class Modifier extends StatefulWidget {
   @override
-  _Inscription2State createState() => _Inscription2State();
+  _ModifierState createState() => _ModifierState();
 }
 
-class _Inscription2State extends State<Inscription2> {
+class _ModifierState extends State<Modifier> {
   String _value = null;
   List<String> _values = new List<String>();
   String _value1 = null;
@@ -28,8 +30,10 @@ class _Inscription2State extends State<Inscription2> {
     _values2.addAll(
         ["Adrar", "Chlef", "Laghouat", "Oum El Bouagi", "Batna", "Bejaia"]);
     _value2 = _values2.elementAt(0);
+    _values4.addAll(
+        ["Français", "Anglais"]);
+    _value4 = _values4.elementAt(0);
   }
-
   @override
   void _OnChange(String value) {
     setState(() {
@@ -54,61 +58,25 @@ class _Inscription2State extends State<Inscription2> {
       _value3 = value3;
     });
   }
-
-  @override
-  Future<void> _showMyDialog() async {
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: false, // user must tap button!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Felicitations! '),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: <Widget>[
-                Text(
-                    'Votre compte est crée vous pouvez à tout moment modifiez vos informations en consultant votre profil '),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            FlatButton(
-              child: Text(
-                'Continuer',
-                style: TextStyle(color: Color(0xff73B650)),
-              ),
-              onPressed: () {},
-            ),
-          ],
-        );
-      },
-    );
+  void _OnChange4(String value3) {
+    setState(() {
+      _value4 = _value4;
+    });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Color(0xff73B650),
+        title: Text('Profile'),
+      ),
+      drawer: MyDrawer(),
       body: ListView(
         children: <Widget>[
           Column(
             children: <Widget>[
-              Container(
-                height: 70,
-                color: Color(0xff73B650),
-                child: Row(
-                  children: <Widget>[
 
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10, left: 360.0),
-                      child: Icon(
-                        Icons.exit_to_app,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -143,6 +111,24 @@ class _Inscription2State extends State<Inscription2> {
                   child: Column(
                     children: <Widget>[
                       Padding(
+                        padding: const EdgeInsets.only(top:20.0,right: 184,bottom: 10),
+                        child: SizedBox(
+                          child: Text('Email',style: TextStyle(fontSize:18, color: Color(0xff5E646B),),),
+                        ),
+                      ),
+                      Container(
+                        width: 320,
+                        height: 70,
+                        child: TextFormField(
+
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(color: (Colors.grey)),
+                              ),
+                              hintText: 'ga_douzi@esi.dz'),
+                        ),
+                      ),
+                      Padding(
                         padding: const EdgeInsets.only(
                             top: 0, bottom: 5, right: 190),
                         child: SizedBox(
@@ -164,7 +150,7 @@ class _Inscription2State extends State<Inscription2> {
                                 value: value,
                                 child: Padding(
                                   padding:
-                                      const EdgeInsets.only(left: 15, right: 0),
+                                  const EdgeInsets.only(left: 15, right: 0),
                                   child: new Text(
                                     '${value}',
                                     style: TextStyle(color: Colors.grey),
@@ -223,7 +209,7 @@ class _Inscription2State extends State<Inscription2> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
-                            bottom: 5, right: 64, top: 10),
+                            bottom: 5, right: 70, top: 10),
                         child: SizedBox(
                           child: Text(
                             'Wilaya de résidence',
@@ -243,7 +229,7 @@ class _Inscription2State extends State<Inscription2> {
                                 value: value2,
                                 child: Padding(
                                   padding:
-                                      const EdgeInsets.only(left: 0, right: 0),
+                                  const EdgeInsets.only(left: 0, right: 0),
                                   child: new Text(
                                     '${value2}',
                                     style: TextStyle(color: Colors.grey),
@@ -262,7 +248,7 @@ class _Inscription2State extends State<Inscription2> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
-                            bottom: 5, right: 29, top: 10),
+                            bottom: 5, right: 39, top: 10),
                         child: SizedBox(
                           child: Text(
                             'Commune de résidence',
@@ -282,7 +268,7 @@ class _Inscription2State extends State<Inscription2> {
                                 value: value,
                                 child: Padding(
                                   padding:
-                                      const EdgeInsets.only(left: 0, right: 0),
+                                  const EdgeInsets.only(left: 0, right: 0),
                                   child: new Text(
                                     '${value}',
                                     style: TextStyle(color: Colors.grey),
@@ -299,49 +285,72 @@ class _Inscription2State extends State<Inscription2> {
                           ),
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            bottom: 5, right: 154, top: 10),
+                        child: SizedBox(
+                          child: Text(
+                            'Langue',
+                            style: TextStyle(
+                                color: Color(0xff5E646B), fontSize: 18),
+                          ),
+                        ),
+                      ),
+                      ButtonTheme(
+                        alignedDropdown: true,
+                        child: new DropdownButtonFormField(
+                          hint: Text('Français'),
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                          value: _value4,
+                          items: _values4.map((String value) {
+                            return new DropdownMenuItem(
+                                value: value,
+                                child: Padding(
+                                  padding:
+                                  const EdgeInsets.only(left: 0, right: 0),
+                                  child: new Text(
+                                    '${value}',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                ));
+                          }).toList(),
+                          onChanged: (String value) {
+                            _OnChange4(value);
+                          },
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: (Colors.amber)),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
               Container(
-                width: 250,
-                height: 65,
-                padding: EdgeInsets.only(top: 20),
-                child: RaisedButton(
-                  onPressed: () {
-                    _showMyDialog();
-                  },
-                  shape: StadiumBorder(),
-                  color: Color(0xff73B650),
-                  child: Text(
-                    'Valider',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 330, top: 10.0),
-                child: Container(
-                  width: 80.0,
-                  height: 20,
-                  child: MaterialButton(
+                 width: 200,
+                  height: 100,
+                  padding: EdgeInsets.only(top:20,bottom: 40),
+                  child: RaisedButton(
                     onPressed: () {
-                      _showMyDialog();
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => Profile2()));
                     },
+                    shape: StadiumBorder(),
+                    color: Color(0xff73B650),
                     child: Text(
-                      'Passer',
-                      style:
-                          TextStyle(color: Color(0xff3A6A75), fontSize: 14.0),
+                      'Valider',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ),
-              ),
+                  ),),
+
             ],
           ),
-      ],
+        ],
       ),
     );
   }

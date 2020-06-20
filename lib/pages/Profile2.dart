@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'ModifierProfile.dart';
 import 'MyDrawer.dart';
-
-class Profile extends StatefulWidget {
+class Profile2 extends StatefulWidget {
   @override
-  _ProfileState createState() => _ProfileState();
+  _Profile2State createState() => _Profile2State();
 }
 
-class _ProfileState extends State<Profile> {
+class _Profile2State extends State<Profile2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +16,9 @@ class _ProfileState extends State<Profile> {
         backgroundColor: Color(0xff73B650),
         title: Text('Profile'),
       ),
-      drawer: MyDrawer(),
+      drawer: MyDrawer(
+
+      ),
       body: ListView(
         children: <Widget>[
           Column(
@@ -27,7 +28,7 @@ class _ProfileState extends State<Profile> {
                 children: <Widget>[
                   Container(
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 12.0),
+                      padding: const EdgeInsets.only(top:12.0),
                       child: Text(
                         'N' '' 'dif',
                         style: TextStyle(
@@ -50,43 +51,33 @@ class _ProfileState extends State<Profile> {
                   ),
                 ],
               ),
+
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 20.0, right: 270, bottom: 10),
+                padding: const EdgeInsets.only(top:20.0,right: 270,bottom: 10),
                 child: SizedBox(
-                  child: Text(
-                    'Email',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.grey),
-                  ),
+                  child: Text('Email',style: TextStyle(fontSize:16,fontWeight: FontWeight.w800,color: Colors.grey),),
                 ),
               ),
               Container(
                 width: 320,
                 height: 70,
                 child: TextFormField(
+
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderSide: BorderSide(color: (Colors.grey)),
                       ),
-                      hintText: 'ga_douzi@esi.dz'),
+                      hintText: 'douzi@gmail.com'),
                 ),
               ),
+
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 0.0, right: 270, bottom: 10),
+                padding: const EdgeInsets.only(top:0.0,right: 270,bottom: 10),
                 child: SizedBox(
-                  child: Text(
-                    'Genre',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.grey),
-                  ),
+                  child: Text('Genre',style: TextStyle(fontSize:16,fontWeight: FontWeight.w800,color: Colors.grey),),
                 ),
               ),
+
               Container(
                 width: 320,
                 height: 70,
@@ -99,18 +90,12 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 0.0, right: 238, bottom: 10),
+                padding: const EdgeInsets.only(top:0.0,right: 238,bottom: 10),
                 child: SizedBox(
-                  child: Text(
-                    'Profession',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.grey),
-                  ),
+                  child: Text('Profession',style: TextStyle(fontSize:16,fontWeight: FontWeight.w800,color: Colors.grey),),
                 ),
               ),
+
               Container(
                 width: 320,
                 height: 70,
@@ -119,22 +104,16 @@ class _ProfileState extends State<Profile> {
                       border: OutlineInputBorder(
                         borderSide: BorderSide(color: (Colors.grey)),
                       ),
-                      hintText: 'Enseignant'),
+                      hintText: 'Retraité'),
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 0.0, right: 168, bottom: 10),
+                padding: const EdgeInsets.only(top:0.0,right: 168,bottom: 10),
                 child: SizedBox(
-                  child: Text(
-                    'Wilaya de résidence ',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.grey),
-                  ),
+                  child: Text('Wilaya de résidence ',style: TextStyle(fontSize:16,fontWeight: FontWeight.w800,color: Colors.grey),),
                 ),
               ),
+
               Container(
                 width: 320,
                 height: 70,
@@ -147,18 +126,12 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 0.0, right: 142, bottom: 10),
+                padding: const EdgeInsets.only(top:0.0,right: 142,bottom: 10),
                 child: SizedBox(
-                  child: Text(
-                    'Commune de résidence',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.grey),
-                  ),
+                  child: Text('Commune de résidence',style: TextStyle(fontSize:16,fontWeight: FontWeight.w800,color: Colors.grey),),
                 ),
               ),
+
               Container(
                 width: 320,
                 height: 80,
@@ -171,18 +144,12 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 0.0, right: 257, bottom: 10),
+                padding: const EdgeInsets.only(top:0.0,right: 257,bottom: 10),
                 child: SizedBox(
-                  child: Text(
-                    'Langue',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.grey),
-                  ),
+                  child: Text('Langue',style: TextStyle(fontSize:16,fontWeight: FontWeight.w800,color: Colors.grey),),
                 ),
               ),
+
               Container(
                 width: 320,
                 height: 80,
@@ -197,14 +164,14 @@ class _ProfileState extends State<Profile> {
             ],
           ),
           Container(
-              padding: EdgeInsets.only(left: 85, right: 85, bottom: 45),
-              height: 88,
+              padding: EdgeInsets.only(left: 85,right: 85,bottom: 45),
+              height: 92,
               width: 100,
               child: RaisedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => Modifier()));
-                },
+                onPressed: (){  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => Modifier()
+                ));}
+                ,
                 shape: StadiumBorder(),
                 color: Color(0xff73B650),
                 child: Text(
@@ -214,8 +181,7 @@ class _ProfileState extends State<Profile> {
                       fontSize: 16.0,
                       fontWeight: FontWeight.bold),
                 ),
-              ))
-        ],
+              ))],
       ),
     );
   }
