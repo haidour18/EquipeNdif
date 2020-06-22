@@ -7,7 +7,6 @@ class Inscription extends StatefulWidget {
 }
 
 class _InscriptionState extends State<Inscription> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -136,7 +135,10 @@ class _InscriptionState extends State<Inscription> {
                       color: Color(0xff73B650),
                       child: Text(
                         'Valider',
-                        style: TextStyle(color: Colors.white, fontSize: 16.0,fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),

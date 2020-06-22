@@ -34,15 +34,15 @@ class _BarState extends State<Bar> {
         height: 60.0,
         width: 70.0,
         child: FittedBox(
-
           child: FloatingActionButton(
-
-              child: Icon(Icons.add,size: 25,),
+              child: Icon(
+                Icons.add,
+                size: 25,
+              ),
               backgroundColor: Color(0xff73B650),
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => Declarer()
-                ));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => DeclarerBenne()));
               }),
         ),
       ),
@@ -64,7 +64,7 @@ class _BarState extends State<Bar> {
                     onPressed: () {
                       setState(() {
                         currentScreen =
-                           Declarations(); // if user taps on this dashboard tab will be active
+                            Declarations(); // if user taps on this dashboard tab will be active
                         currentTab = 0;
                       });
                     },
@@ -74,15 +74,18 @@ class _BarState extends State<Bar> {
                         Icon(
                           Icons.history,
                           size: 24.0,
-                          color: currentTab == 0 ? Color(0xff73B650) : Colors.grey,
+                          color:
+                              currentTab == 0 ? Color(0xff73B650) : Colors.grey,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left:8.0,top: 2),
+                          padding: const EdgeInsets.only(left: 8.0, top: 2),
                           child: Text(
                             'Declarations',
                             style: TextStyle(
                               fontSize: 12,
-                              color: currentTab == 0 ? Color(0xff73B650) : Colors.grey,
+                              color: currentTab == 0
+                                  ? Color(0xff73B650)
+                                  : Colors.grey,
                             ),
                           ),
                         ),
@@ -102,20 +105,24 @@ class _BarState extends State<Bar> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(left:3.0),
+                          padding: const EdgeInsets.only(left: 3.0),
                           child: Icon(
                             Icons.person,
                             size: 24.0,
-                            color: currentTab == 1 ? Color(0xff73B650): Colors.grey,
+                            color: currentTab == 1
+                                ? Color(0xff73B650)
+                                : Colors.grey,
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left:5.0,top: 2),
+                          padding: const EdgeInsets.only(left: 5.0, top: 2),
                           child: Text(
                             'Profil',
                             style: TextStyle(
                               fontSize: 12,
-                              color: currentTab == 1 ?Color(0xff73B650) : Colors.grey,
+                              color: currentTab == 1
+                                  ? Color(0xff73B650)
+                                  : Colors.grey,
                             ),
                           ),
                         ),
@@ -145,13 +152,16 @@ class _BarState extends State<Bar> {
                         Icon(
                           Icons.notifications,
                           size: 24.0,
-                          color: currentTab == 2 ? Color(0xff73B650) : Colors.grey,
+                          color:
+                              currentTab == 2 ? Color(0xff73B650) : Colors.grey,
                         ),
                         Text(
                           'Notifications',
                           style: TextStyle(
                             fontSize: 12,
-                            color: currentTab == 2 ? Color(0xff73B650) : Colors.grey,
+                            color: currentTab == 2
+                                ? Color(0xff73B650)
+                                : Colors.grey,
                           ),
                         ),
                       ],
@@ -172,13 +182,16 @@ class _BarState extends State<Bar> {
                         Icon(
                           Icons.call,
                           size: 24.0,
-                          color: currentTab == 3 ? Color(0xff73B650): Colors.grey,
+                          color:
+                              currentTab == 3 ? Color(0xff73B650) : Colors.grey,
                         ),
                         Text(
                           'Contact',
                           style: TextStyle(
                             fontSize: 12,
-                            color: currentTab == 3 ? Color(0xff73B650) : Colors.grey,
+                            color: currentTab == 3
+                                ? Color(0xff73B650)
+                                : Colors.grey,
                           ),
                         ),
                       ],
