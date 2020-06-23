@@ -123,13 +123,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   }
 
   static const menuItems = <String>[
-    'Jamais',
-    'Rarement',
-    'Souvent',
-    'Toujours',
+    '0',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    'Je ne sais pas',
   ];
 
-  String _btn1SelectedVal = 'Jamais';
+  String _btn1SelectedVal = '0';
 
   final List<DropdownMenuItem<String>> _dropDownMenuItems = menuItems
       .map(
