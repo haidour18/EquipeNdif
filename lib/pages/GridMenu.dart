@@ -39,13 +39,9 @@ class GridMenu extends StatelessWidget {
                         Container(
                           height: 70,
                           padding: EdgeInsets.all(20.0),
-                          // margin: EdgeInsets.all(15.0),
                           child: Image.asset(
                               "assets/icons/icon_awesome_trash.png"),
                         ),
-                        // Padding(
-                        //   padding: EdgeInsets.only(right: 2),
-                        // ),
                         Text(
                           "Déclarer un déchet",
                           style: TextStyle(
@@ -56,14 +52,7 @@ class GridMenu extends StatelessWidget {
                         )
                       ],
                     ),
-                    // onTap: () {
-                    //   print("Galllery");
-                    //   // _openGallery();
-                    // },
                   ),
-                  // Divider(
-                  //   color: Colors.green[200],
-                  // ),
                   Padding(
                     padding: EdgeInsets.all(2.0),
                   ),
@@ -86,9 +75,6 @@ class GridMenu extends StatelessWidget {
                           // margin: EdgeInsets.all(15.0),
                           child: Image.asset("assets/icons/recycle_bin.png"),
                         ),
-                        // Padding(
-                        //   padding: EdgeInsets.only(right: 15),
-                        // ),
                         Text(
                           "Déclarer une benne",
                           style: TextStyle(
@@ -100,9 +86,9 @@ class GridMenu extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // Divider(
-                  //   color: Colors.green[200],
-                  // ),
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                  ),
                 ],
               ),
             ),
