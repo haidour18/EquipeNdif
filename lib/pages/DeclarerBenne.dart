@@ -1,3 +1,4 @@
+import 'package:equipendif/pages/MyDrawer.dart';
 import 'package:flutter/material.dart';
 
 // void main() {
@@ -99,6 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () => Navigator.pop(context, false),
         ),
       ),
+      drawer: MyDrawer(),
       body: Container(
         padding: EdgeInsets.fromLTRB(5, 15, 10, 30),
         child: Align(

@@ -1,9 +1,9 @@
 import "dart:io";
+import 'package:equipendif/pages/MyDrawer.dart';
 import 'package:equipendif/pages/ViewPhoto.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'PositionCarte.dart';
-import 'ViewPhoto.dart';
+import 'package:equipendif/pages/ViewPhoto.dart';
 // import 'package:image_picker/image_picker.dart';
 
 /// This Widget is the main application widget.
@@ -26,6 +26,7 @@ class DeclarerDechet extends StatelessWidget {
             onPressed: () => Navigator.pop(context, false),
           ),
         ),
+        drawer: MyDrawer(),
         body: Center(
           child: MyStatefulWidget(),
         ),

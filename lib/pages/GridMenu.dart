@@ -2,6 +2,8 @@ import 'package:equipendif/pages/Contact.dart';
 import 'package:equipendif/pages/PositionCarte2.dart';
 import 'package:equipendif/pages/PositionCarte.dart';
 import 'package:equipendif/pages/navigationbar.dart';
+import 'package:equipendif/pages/Profile.dart';
+import 'package:equipendif/pages/Profile2.dart';
 import 'package:flutter/material.dart';
 // import 'PositionCarte.dart';
 
@@ -160,7 +162,10 @@ class GridMenu extends StatelessWidget {
             ),
           ),
           RaisedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Profile2()));
+            },
             color: Colors.white,
             splashColor: Colors.amberAccent,
             child: Column(
@@ -187,7 +192,7 @@ class GridMenu extends StatelessWidget {
           RaisedButton(
             onPressed: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Bar()));
+                  .push(MaterialPageRoute(builder: (context) => Contact()));
             },
             color: Colors.white,
             splashColor: Colors.amberAccent,
