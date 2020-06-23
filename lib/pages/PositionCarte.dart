@@ -50,10 +50,38 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       ),
       child: Stack(
         children: <Widget>[
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 30, 0, 10),
+            child: RaisedButton(
+              shape: CircleBorder(),
+              onPressed: () {},
+              color: Colors.green,
+              child: Icon(
+                Icons.menu,
+                color: Colors.white,
+              ),
+              padding: EdgeInsets.all(15.0),
+            ),
+          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              // Text("data"),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(0, 20, 0, 10),
+                  child: RaisedButton(
+                    shape: CircleBorder(),
+                    onPressed: () {},
+                    color: Colors.green,
+                    child: Icon(
+                      Icons.gps_fixed,
+                      color: Colors.white,
+                    ),
+                    padding: EdgeInsets.all(15.0),
+                  ),
+                ),
+              ),
               Align(
                 alignment: Alignment.bottomRight,
                 child: Container(

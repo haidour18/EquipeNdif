@@ -22,8 +22,10 @@ class GridMenu extends StatelessWidget {
                   Divider(
                     color: Colors.green[200],
                   ),
-                  GestureDetector(
-                    onTap: () {
+                  RaisedButton(
+                    color: Colors.white,
+                    splashColor: Colors.green,
+                    onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => PositionCarte(),
@@ -59,14 +61,16 @@ class GridMenu extends StatelessWidget {
                     //   // _openGallery();
                     // },
                   ),
-                  Divider(
-                    color: Colors.green[200],
-                  ),
-                  // Padding(
-                  //   padding: EdgeInsets.all(2.0),
+                  // Divider(
+                  //   color: Colors.green[200],
                   // ),
-                  GestureDetector(
-                    onTap: () {
+                  Padding(
+                    padding: EdgeInsets.all(2.0),
+                  ),
+                  RaisedButton(
+                    color: Colors.white,
+                    splashColor: Colors.green,
+                    onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => DeclarerBenne(),
@@ -96,9 +100,9 @@ class GridMenu extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Divider(
-                    color: Colors.green[200],
-                  ),
+                  // Divider(
+                  //   color: Colors.green[200],
+                  // ),
                 ],
               ),
             ),
