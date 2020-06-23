@@ -1,9 +1,9 @@
 import 'package:equipendif/pages/Contact.dart';
-import 'package:equipendif/pages/DeclarerBenne.dart';
-import 'package:equipendif/pages/DeclarerDechet.dart';
+import 'package:equipendif/pages/PositionCarte2.dart';
+import 'package:equipendif/pages/PositionCarte.dart';
 import 'package:equipendif/pages/navigationbar.dart';
 import 'package:flutter/material.dart';
-import 'PositionCarte.dart';
+// import 'PositionCarte.dart';
 
 class GridMenu extends StatelessWidget {
   Future<void> _showChoiceDialog(BuildContext context) {
@@ -62,7 +62,7 @@ class GridMenu extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => DeclarerBenne(),
+                          builder: (context) => PositionCarte2(),
                         ),
                       );
                     },

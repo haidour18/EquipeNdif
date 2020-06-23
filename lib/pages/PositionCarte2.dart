@@ -1,10 +1,12 @@
+import 'package:equipendif/pages/DeclarerBenne.dart';
 import 'package:equipendif/pages/MyDrawer.dart';
 import 'package:flutter/material.dart';
 import 'DeclarerDechet.dart';
+import 'DeclarerBenne.dart';
 import 'MyDrawer.dart';
 
 /// This Widget is the main application widget.
-class PositionCarte extends StatelessWidget {
+class PositionCarte2 extends StatelessWidget {
   static const String _title = 'Flutter Code Sample';
 
   @override
@@ -162,7 +164,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             child: RaisedButton(
               onPressed: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => DeclarerDechet()));
+                    MaterialPageRoute(builder: (context) => DeclarerBenne()));
               },
               color: Colors.green,
               textColor: Colors.white,
