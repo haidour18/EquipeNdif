@@ -35,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //Etat _character = Etat.inadaptee;
   int selectedEtat;
   int selectedNombrePassage;
+  int selected_type = -1;
 
   @override
   void initState() {
@@ -116,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: Color(0xff686868),
-                  fontSize: 20,
+                  fontSize: 16,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -164,7 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               },
                             ),
                             Text("Inadaptée"),
-                            Padding(padding: EdgeInsets.only(left: 15.0)),
+                            Padding(padding: EdgeInsets.only(left: 13.0)),
                           ]),
                     ),
                     new Flexible(
@@ -196,7 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: Color(0xff686868),
-                    fontSize: 20,
+                    fontSize: 15,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -205,40 +206,96 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
-                    new Flexible(
+                    GestureDetector(
+                      onTap: () {
+                        // print('hello');
+                        setState(() {
+                          selected_type = 0;
+                        });
+                        print(selected_type);
+                      },
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
-                            Container(
-                              height: 70,
-                              padding: EdgeInsets.fromLTRB(30.0, 30, 30, 30),
-                              decoration: BoxDecoration(
-                                  color: Colors.green[100],
-                                  shape: BoxShape.circle),
-                              child: Image.asset(
-                                  'assets/icons/question-mark-128.png'),
-                            ),
+                            (selected_type == 0)
+                                ? Container(
+                                    height: 70,
+                                    padding:
+                                        EdgeInsets.fromLTRB(15.0, 15, 15, 15),
+                                    decoration: BoxDecoration(
+                                      color: Colors.green[100],
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                          color: Colors.green[600], width: 3),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/icons/benne1.png',
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                  )
+                                : Container(
+                                    height: 70,
+                                    padding:
+                                        EdgeInsets.fromLTRB(15.0, 15, 15, 15),
+                                    decoration: BoxDecoration(
+                                        color: Colors.green[100],
+                                        shape: BoxShape.circle),
+                                    child: Image.asset(
+                                      'assets/icons/benne1.png',
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                  ),
                             Text(
                               "360 litres",
                               textAlign: TextAlign.center,
                             ),
                           ]),
                     ),
-                    new Flexible(
+                    GestureDetector(
+                      onTap: () {
+                        // print('hello');
+                        setState(() {
+                          selected_type = 1;
+                        });
+                        print(selected_type);
+                      },
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
-                            Container(
-                              height: 70,
-                              padding: EdgeInsets.fromLTRB(30.0, 30, 30, 30),
-                              decoration: BoxDecoration(
-                                  color: Colors.green[100],
-                                  shape: BoxShape.circle),
-                              child: Image.asset(
-                                  'assets/icons/question-mark-128.png'),
-                            ),
+                            (selected_type == 1)
+                                ? Container(
+                                    height: 70,
+                                    padding:
+                                        EdgeInsets.fromLTRB(15.0, 15, 15, 15),
+                                    decoration: BoxDecoration(
+                                      color: Colors.green[100],
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                          color: Colors.green[600], width: 3),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/icons/bene2.png',
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                  )
+                                : Container(
+                                    height: 70,
+                                    padding:
+                                        EdgeInsets.fromLTRB(15.0, 15, 15, 15),
+                                    decoration: BoxDecoration(
+                                        color: Colors.green[100],
+                                        shape: BoxShape.circle),
+                                    child: Image.asset(
+                                      'assets/icons/bene2.png',
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                  ),
                             Padding(padding: EdgeInsets.only(top: 0.0)),
                             Text(
                               "1000 litres",
@@ -246,20 +303,48 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ]),
                     ),
-                    new Flexible(
+                    GestureDetector(
+                      onTap: () {
+                        // print('hello');
+                        setState(() {
+                          selected_type = 2;
+                        });
+                        print(selected_type);
+                      },
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
-                            Container(
-                              height: 70,
-                              padding: EdgeInsets.fromLTRB(30.0, 30, 30, 30),
-                              decoration: BoxDecoration(
-                                  color: Colors.green[100],
-                                  shape: BoxShape.circle),
-                              child: Image.asset(
-                                  'assets/icons/question-mark-128.png'),
-                            ),
+                            (selected_type == 2)
+                                ? Container(
+                                    height: 70,
+                                    padding:
+                                        EdgeInsets.fromLTRB(15.0, 15, 15, 15),
+                                    decoration: BoxDecoration(
+                                      color: Colors.green[100],
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                          color: Colors.green[600], width: 3),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/icons/benne3.png',
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                  )
+                                : Container(
+                                    height: 70,
+                                    padding:
+                                        EdgeInsets.fromLTRB(15.0, 15, 15, 15),
+                                    decoration: BoxDecoration(
+                                        color: Colors.green[100],
+                                        shape: BoxShape.circle),
+                                    child: Image.asset(
+                                      'assets/icons/benne3.png',
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                  ),
                             Padding(padding: EdgeInsets.only(top: 0.0)),
                             Text(
                               "10 m3",
@@ -267,20 +352,48 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ]),
                     ),
-                    new Flexible(
+                    GestureDetector(
+                      onTap: () {
+                        // print('hello');
+                        setState(() {
+                          selected_type = 3;
+                        });
+                        print(selected_type);
+                      },
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
-                            Container(
-                              height: 70,
-                              padding: EdgeInsets.fromLTRB(30.0, 30, 30, 30),
-                              decoration: BoxDecoration(
-                                  color: Colors.green[100],
-                                  shape: BoxShape.circle),
-                              child: Image.asset(
-                                  'assets/icons/question-mark-128.png'),
-                            ),
+                            (selected_type == 3)
+                                ? Container(
+                                    height: 70,
+                                    padding:
+                                        EdgeInsets.fromLTRB(15.0, 15, 15, 15),
+                                    decoration: BoxDecoration(
+                                      color: Colors.green[100],
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                          color: Colors.green[600], width: 3),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/icons/question-mark-128.png',
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                  )
+                                : Container(
+                                    height: 70,
+                                    padding:
+                                        EdgeInsets.fromLTRB(15.0, 15, 15, 15),
+                                    decoration: BoxDecoration(
+                                        color: Colors.green[100],
+                                        shape: BoxShape.circle),
+                                    child: Image.asset(
+                                      'assets/icons/question-mark-128.png',
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                  ),
                             Text(
                               "Autres",
                               textAlign: TextAlign.center,
@@ -296,7 +409,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: Color(0xff686868),
-                    fontSize: 20,
+                    fontSize: 15,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -379,7 +492,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Color(0xff686868),
-                          fontSize: 20,
+                          fontSize: 15,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
