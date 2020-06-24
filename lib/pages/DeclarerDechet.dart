@@ -4,6 +4,11 @@ import 'package:equipendif/pages/ViewPhoto.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:equipendif/pages/ViewPhoto.dart';
+
+import 'Contact.dart';
+import 'Declarations.dart';
+import 'Notifications.dart';
+import 'Profile2.dart';
 // import 'package:image_picker/image_picker.dart';
 
 /// This Widget is the main application widget.
@@ -13,25 +18,9 @@ class DeclarerDechet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: _title,
-      home: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: true,
-          centerTitle: true,
-          backgroundColor: Colors.green,
-          title: Text('Declarer un déchet'),
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () => Navigator.pop(context, false),
-          ),
-        ),
-        drawer: MyDrawer(),
-        body: Center(
-          child: MyStatefulWidget(),
-        ),
-      ),
-    );
+        debugShowCheckedModeBanner: false,
+        title: _title,
+        home: MyStatefulWidget());
   }
 }
 
@@ -43,6 +32,37 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _cIndex = 2;
+  void _incrementTab(index) {
+    setState(() {
+      _cIndex = index;
+    });
+    switch (_cIndex) {
+      case 0:
+        print(0);
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Declarations()));
+        break;
+      case 1:
+        print(1);
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Profile2()));
+        break;
+      case 3:
+        print(2);
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Notifications()));
+        break;
+      case 4:
+        print(3);
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Contact()));
+        break;
+
+      default:
+    }
+  }
+
   int selected_type = -1;
 
   File _imageFile;
@@ -63,8 +83,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     });
     Navigator.of(context).pop();
   }
-
-  // const Widget buttons =
 
   Future<void> _showChoiceDialog(BuildContext context) {
     return showDialog(
@@ -224,314 +242,376 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ),
       ],
     );
-    return Container(
-      padding: EdgeInsets.fromLTRB(10, 20, 10, 30),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          Container(
-            child: Column(
-              children: <Widget>[
-                Text(
-                  "Quelle est le type de votre déchet ?",
-                  style: TextStyle(
-                    color: Color(0xff686868),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                Padding(padding: EdgeInsets.only(bottom: 20.0)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: true,
+        centerTitle: true,
+        backgroundColor: Colors.green,
+        title: Text('Declarer un déchet'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context, false),
+        ),
+      ),
+      drawer: MyDrawer(),
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.fromLTRB(10, 20, 10, 30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Container(
+                child: Column(
                   children: <Widget>[
-                    GestureDetector(
-                      onTap: () {
-                        // print('hello');
-                        setState(() {
-                          selected_type = 0;
-                        });
-                        print(selected_type);
-                      },
-                      child: Column(
-                        children: <Widget>[
-                          (selected_type == 0)
-                              ? Container(
-                                  height: 90,
-                                  padding: EdgeInsets.all(20.0),
-                                  decoration: BoxDecoration(
-                                    color: Colors.green[100],
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color: Colors.green[600], width: 3),
-                                  ),
-                                  child:
-                                      Image.asset('assets/icons/dustbin_1.png'),
-                                )
-                              : Container(
-                                  height: 90,
-                                  padding: EdgeInsets.all(20.0),
-                                  decoration: BoxDecoration(
-                                    color: Colors.green[100],
-                                    shape: BoxShape.circle,
-                                    // border: Border.all(
-                                    //     color: Colors.green[600], width: 3),
-                                  ),
-                                  child:
-                                      Image.asset('assets/icons/dustbin_1.png'),
-                                ),
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 10.0),
-                          ),
-                          Text(
-                            'Gravats',
-                            style: TextStyle(
-                              color: Color(0xff686868),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ],
+                    Text(
+                      "Quelle est le type de votre déchet ?",
+                      style: TextStyle(
+                        color: Color(0xff686868),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selected_type = 1;
-                        });
-                        print(selected_type);
-                      },
-                      child: Column(
-                        children: <Widget>[
-                          (selected_type == 1)
-                              ? Container(
-                                  height: 90,
-                                  padding: EdgeInsets.all(20.0),
-                                  decoration: BoxDecoration(
-                                    color: Colors.green[100],
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color: Colors.green[600], width: 3),
-                                  ),
-                                  child: Image.asset('assets/icons/can_4.png'),
-                                )
-                              : Container(
-                                  height: 90,
-                                  padding: EdgeInsets.all(20.0),
-                                  decoration: BoxDecoration(
-                                      color: Colors.green[100],
-                                      shape: BoxShape.circle),
-                                  child: Image.asset('assets/icons/can_4.png'),
+                    Padding(padding: EdgeInsets.only(bottom: 20.0)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        GestureDetector(
+                          onTap: () {
+                            // print('hello');
+                            setState(() {
+                              selected_type = 0;
+                            });
+                            print(selected_type);
+                          },
+                          child: Column(
+                            children: <Widget>[
+                              (selected_type == 0)
+                                  ? Container(
+                                      height: 90,
+                                      padding: EdgeInsets.all(20.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.green[100],
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                            color: Colors.green[600], width: 3),
+                                      ),
+                                      child: Image.asset(
+                                          'assets/icons/dustbin_1.png'),
+                                    )
+                                  : Container(
+                                      height: 90,
+                                      padding: EdgeInsets.all(20.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.green[100],
+                                        shape: BoxShape.circle,
+                                        // border: Border.all(
+                                        //     color: Colors.green[600], width: 3),
+                                      ),
+                                      child: Image.asset(
+                                          'assets/icons/dustbin_1.png'),
+                                    ),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 10.0),
+                              ),
+                              Text(
+                                'Gravats',
+                                style: TextStyle(
+                                  color: Color(0xff686868),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
                                 ),
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 10.0),
+                              ),
+                            ],
                           ),
-                          Text(
-                            'Végétal',
-                            style: TextStyle(
-                              color: Color(0xff686868),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              selected_type = 1;
+                            });
+                            print(selected_type);
+                          },
+                          child: Column(
+                            children: <Widget>[
+                              (selected_type == 1)
+                                  ? Container(
+                                      height: 90,
+                                      padding: EdgeInsets.all(20.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.green[100],
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                            color: Colors.green[600], width: 3),
+                                      ),
+                                      child:
+                                          Image.asset('assets/icons/can_4.png'),
+                                    )
+                                  : Container(
+                                      height: 90,
+                                      padding: EdgeInsets.all(20.0),
+                                      decoration: BoxDecoration(
+                                          color: Colors.green[100],
+                                          shape: BoxShape.circle),
+                                      child:
+                                          Image.asset('assets/icons/can_4.png'),
+                                    ),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 10.0),
+                              ),
+                              Text(
+                                'Végétal',
+                                style: TextStyle(
+                                  color: Color(0xff686868),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              selected_type = 2;
+                            });
+                            print(selected_type);
+                          },
+                          child: Column(
+                            children: <Widget>[
+                              (selected_type == 2)
+                                  ? Container(
+                                      height: 90,
+                                      padding: EdgeInsets.all(20.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.green[100],
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                            color: Colors.green[600], width: 3),
+                                      ),
+                                      child: Image.asset(
+                                          'assets/icons/recycle_bin.png'),
+                                    )
+                                  : Container(
+                                      height: 90,
+                                      padding: EdgeInsets.all(20.0),
+                                      decoration: BoxDecoration(
+                                          color: Colors.green[100],
+                                          shape: BoxShape.circle),
+                                      child: Image.asset(
+                                          'assets/icons/recycle_bin.png'),
+                                    ),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 10.0),
+                              ),
+                              Text(
+                                'Ménager',
+                                style: TextStyle(
+                                  color: Color(0xff686868),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              selected_type = 3;
+                            });
+                            print(selected_type);
+                          },
+                          child: Column(
+                            children: <Widget>[
+                              (selected_type == 3)
+                                  ? Container(
+                                      height: 90,
+                                      padding: EdgeInsets.all(20.0),
+                                      decoration: BoxDecoration(
+                                          color: Colors.green[100],
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                              color: Colors.green[600],
+                                              width: 3)),
+                                      child: Image.asset(
+                                          'assets/icons/question-mark-128.png'),
+                                      // child: Text(
+                                      //   "?",
+                                      //   style: TextStyle(fontSize: 30),
+                                      // ),
+                                    )
+                                  : Container(
+                                      height: 90,
+                                      padding: EdgeInsets.all(20.0),
+                                      decoration: BoxDecoration(
+                                          color: Colors.green[100],
+                                          shape: BoxShape.circle),
+                                      child: Image.asset(
+                                          'assets/icons/question-mark-128.png'),
+                                      // child: Text(
+                                      //   "?",
+                                      //   style: TextStyle(fontSize: 30),
+                                      // ),
+                                    ),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 10.0),
+                              ),
+                              Text(
+                                'Autres',
+                                style: TextStyle(
+                                  color: Color(0xff686868),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      "Quelle est la nature du déchet ? ",
+                      style: TextStyle(
+                        color: Color(0xff686868),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selected_type = 2;
-                        });
-                        print(selected_type);
-                      },
-                      child: Column(
-                        children: <Widget>[
-                          (selected_type == 2)
-                              ? Container(
-                                  height: 90,
-                                  padding: EdgeInsets.all(20.0),
-                                  decoration: BoxDecoration(
-                                    color: Colors.green[100],
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color: Colors.green[600], width: 3),
-                                  ),
-                                  child: Image.asset(
-                                      'assets/icons/recycle_bin.png'),
-                                )
-                              : Container(
-                                  height: 90,
-                                  padding: EdgeInsets.all(20.0),
-                                  decoration: BoxDecoration(
-                                      color: Colors.green[100],
-                                      shape: BoxShape.circle),
-                                  child: Image.asset(
-                                      'assets/icons/recycle_bin.png'),
-                                ),
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 10.0),
-                          ),
-                          Text(
-                            'Ménager',
-                            style: TextStyle(
-                              color: Color(0xff686868),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ],
-                      ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 20.0),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selected_type = 3;
-                        });
-                        print(selected_type);
-                      },
-                      child: Column(
-                        children: <Widget>[
-                          (selected_type == 3)
-                              ? Container(
-                                  height: 90,
-                                  padding: EdgeInsets.all(20.0),
-                                  decoration: BoxDecoration(
-                                      color: Colors.green[100],
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                          color: Colors.green[600], width: 3)),
-                                  child: Image.asset(
-                                      'assets/icons/question-mark-128.png'),
-                                  // child: Text(
-                                  //   "?",
-                                  //   style: TextStyle(fontSize: 30),
-                                  // ),
-                                )
-                              : Container(
-                                  height: 90,
-                                  padding: EdgeInsets.all(20.0),
-                                  decoration: BoxDecoration(
-                                      color: Colors.green[100],
-                                      shape: BoxShape.circle),
-                                  child: Image.asset(
-                                      'assets/icons/question-mark-128.png'),
-                                  // child: Text(
-                                  //   "?",
-                                  //   style: TextStyle(fontSize: 30),
-                                  // ),
-                                ),
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 10.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new Radio(
+                          value: 0,
+                          activeColor: Colors.green,
+                          groupValue: _radioValue1,
+                          onChanged: _handleRadioValueChange1,
+                        ),
+                        new Text(
+                          'Décharge',
+                          // style: new TextStyle(fontSize: 16.0),
+                          style: TextStyle(
+                            color: Color(0xff686868),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
                           ),
-                          Text(
-                            'Autres',
-                            style: TextStyle(
-                              color: Color(0xff686868),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            ),
+                        ),
+                        new Radio(
+                          value: 1,
+                          activeColor: Colors.green,
+                          groupValue: _radioValue1,
+                          onChanged: _handleRadioValueChange1,
+                        ),
+                        new Text(
+                          'Défaut de ramassage',
+                          // style: new TextStyle(
+                          //   fontSize: 16.0,
+                          // ),
+                          style: TextStyle(
+                            color: Color(0xff686868),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
                           ),
-                        ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      "Quelle est la fréquence de passage du camion d'ordures dans votre quartier ? ",
+                      style: TextStyle(
+                        color: Color(0xff686868),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 20.0),
+                    ),
+                    Center(
+                      // widthFactor: 2.0,
+                      child: Container(
+                        width: 200,
+                        child: DropdownButton<String>(
+                          // Must be one of items.value.
+                          isExpanded: true,
+                          value: _btn1SelectedVal,
+                          onChanged: (String newValue) {
+                            setState(() {
+                              _btn1SelectedVal = newValue;
+                            });
+                          },
+                          items: this._dropDownMenuItems,
+                        ),
                       ),
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              (_imageFile == null) ? _ajouterPhoto : _voirPhoto,
+              Padding(
+                padding: EdgeInsets.only(bottom: 2.0),
+              ),
+            ],
           ),
-          Container(
-            child: Column(
-              children: <Widget>[
-                Text(
-                  "Quelle est la nature du déchet ? ",
-                  style: TextStyle(
-                    color: Color(0xff686868),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20.0),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    new Radio(
-                      value: 0,
-                      activeColor: Colors.green,
-                      groupValue: _radioValue1,
-                      onChanged: _handleRadioValueChange1,
-                    ),
-                    new Text(
-                      'Décharge',
-                      // style: new TextStyle(fontSize: 16.0),
-                      style: TextStyle(
-                        color: Color(0xff686868),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    new Radio(
-                      value: 1,
-                      activeColor: Colors.green,
-                      groupValue: _radioValue1,
-                      onChanged: _handleRadioValueChange1,
-                    ),
-                    new Text(
-                      'Défaut de ramassage',
-                      // style: new TextStyle(
-                      //   fontSize: 16.0,
-                      // ),
-                      style: TextStyle(
-                        color: Color(0xff686868),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
+        child: Icon(
+          Icons.add,
+          // color: Colors.green,
+        ),
+        mini: false,
+        onPressed: () =>
+            // Fluttertoast.showToast(msg: 'Dummy floating action button'),
+            print("Dummy floating action button"),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomNavigationBar(
+        // backgroundColor: Colors.green,
+        currentIndex: _cIndex,
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history),
+            title: Text("Déclarations"),
           ),
-          Container(
-            child: Column(
-              children: <Widget>[
-                Text(
-                  "Quelle est la fréquence de passage du camion d'ordures dans votre quartier ? ",
-                  style: TextStyle(
-                    color: Color(0xff686868),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20.0),
-                ),
-                Center(
-                  // widthFactor: 2.0,
-                  child: Container(
-                    width: 200,
-                    child: DropdownButton<String>(
-                      // Must be one of items.value.
-                      isExpanded: true,
-                      value: _btn1SelectedVal,
-                      onChanged: (String newValue) {
-                        setState(() {
-                          _btn1SelectedVal = newValue;
-                        });
-                      },
-                      items: this._dropDownMenuItems,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title: Text("Profil"),
           ),
-          (_imageFile == null) ? _ajouterPhoto : _voirPhoto,
-          Padding(
-            padding: EdgeInsets.only(bottom: 2.0),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.arrow_drop_up),
+            title: Text(""),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            title: Text("Notifications"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.contacts),
+            title: Text("Contact"),
           ),
         ],
+        onTap: (index) {
+          _incrementTab(index);
+          print(index);
+        },
+        selectedItemColor: Colors.green,
       ),
     );
   }
