@@ -1,4 +1,5 @@
 import 'package:equipendif/pages/Contact.dart';
+import 'package:equipendif/pages/Declarations.dart';
 import 'package:equipendif/pages/PositionCarte2.dart';
 import 'package:equipendif/pages/PositionCarte.dart';
 import 'package:equipendif/pages/navigationbar.dart';
@@ -138,7 +139,10 @@ class GridMenu extends StatelessWidget {
             ),
           ),
           RaisedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => Declarations()));
+            },
             color: Colors.white,
             splashColor: Colors.green,
             child: Column(

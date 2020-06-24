@@ -11,7 +11,7 @@ class Contact extends StatefulWidget {
 }
 
 class _ContactState extends State<Contact> {
-  int _cIndex = 3;
+  int _cIndex = 4;
   void _incrementTab(index) {
     setState(() {
       _cIndex = index;

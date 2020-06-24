@@ -10,7 +10,7 @@ class Notifications extends StatefulWidget {
 }
 
 class _NotificationsState extends State<Notifications> {
-  int _cIndex = 2;
+  int _cIndex = 3;
   void _incrementTab(index) {
     setState(() {
       _cIndex = index;
