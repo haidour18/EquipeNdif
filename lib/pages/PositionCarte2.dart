@@ -1,3 +1,4 @@
+import 'package:equipendif/pages/DeclarerBenne.dart';
 import 'package:equipendif/pages/MyDrawer.dart';
 import 'package:equipendif/pages/PositionCarte2.dart';
 import 'package:flutter/material.dart';
@@ -176,7 +177,7 @@ class _PositionCarte2State extends State<PositionCarte2> {
                   child: RaisedButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => DeclarerDechet()));
+                          builder: (context) => DeclarerBenne()));
                     },
                     color: Colors.green,
                     textColor: Colors.white,

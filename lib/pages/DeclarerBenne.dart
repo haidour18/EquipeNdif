@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:equipendif/pages/MyDrawer.dart';
+import 'package:equipendif/pages/ViewPhoto.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'Contact.dart';
 import 'Declarations.dart';
@@ -37,6 +41,72 @@ class MyHomePage extends StatefulWidget {
 //enum Etat { casse, inadaptee, inexistante }
 
 class _MyHomePageState extends State<MyHomePage> {
+  File _imageFile;
+  final picker = ImagePicker();
+
+  _openGallery(BuildContext context) async {
+    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    setState(() {
+      _imageFile = File(pickedFile.path);
+    });
+    Navigator.of(context).pop();
+  }
+
+  _openCamera(BuildContext context) async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+    setState(() {
+      _imageFile = File(pickedFile.path);
+    });
+    Navigator.of(context).pop();
+  }
+
+  Future<void> _showChoiceDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Choisissez une source ! "),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  GestureDetector(
+                      child: Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.file_download,
+                            color: Color(0xff727373),
+                          ),
+                          Padding(padding: EdgeInsets.only(right: 10)),
+                          Text("Gallery"),
+                        ],
+                      ),
+                      onTap: () {
+                        _openGallery(context);
+                      }),
+                  Padding(
+                    padding: EdgeInsets.all(12.0),
+                  ),
+                  GestureDetector(
+                      child: Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.camera_alt,
+                            color: Color(0xff727373),
+                          ),
+                          Padding(padding: EdgeInsets.only(right: 10)),
+                          Text("Camera"),
+                        ],
+                      ),
+                      onTap: () {
+                        _openCamera(context);
+                      }),
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
   int _cIndex = 2;
   void _incrementTab(index) {
     setState(() {
@@ -123,6 +193,78 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var _ajouterPhoto = RaisedButton(
+      onPressed: () {
+        _showChoiceDialog(context);
+      },
+      color: Colors.green,
+      textColor: Colors.white,
+      child: Container(
+        padding: EdgeInsets.all(15),
+        child: Text(
+          'Ajouter une photo',
+          style: TextStyle(
+            color: Color(0xffffffff),
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ),
+      shape: new RoundedRectangleBorder(
+        borderRadius: new BorderRadius.circular(30.0),
+      ),
+    );
+
+    var _voirPhoto = Column(
+      children: <Widget>[
+        RaisedButton(
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => ViewPhoto()));
+          },
+          color: Colors.green,
+          textColor: Colors.white,
+          child: Container(
+            padding: EdgeInsets.all(15),
+            child: Text(
+              'Afficher la photo',
+              style: TextStyle(
+                color: Color(0xffffffff),
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+          shape: new RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(30.0),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(bottom: 20.0),
+        ),
+        RaisedButton(
+          onPressed: () {
+            print("envoie du formulaire");
+          },
+          color: Colors.green,
+          textColor: Colors.white,
+          child: Container(
+            padding: EdgeInsets.all(15),
+            child: Text(
+              'Envoyer',
+              style: TextStyle(
+                color: Color(0xffffffff),
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+          shape: new RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(30.0),
+          ),
+        ),
+      ],
+    );
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -557,6 +699,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
+              (_imageFile == null) ? _ajouterPhoto : _voirPhoto,
             ],
           ),
         ),
